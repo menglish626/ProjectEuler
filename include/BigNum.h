@@ -18,13 +18,13 @@ private:
 	//members 
 	string num;
 	bool neg;
-
+	unsigned char base;
 public:
 
 	//public constructors
-	BigNum(const string& n)
+	BigNum(const string& strg, char baseIn, char baseOut)
 		{
-		string tmp = n;
+		string tmp = strg;
 		//really should make sure that the rest of the string in valid
 		//i.e no decimals, only numbers, except for a leading minus sign
 		//Other thoughts: allow hex valued strings
@@ -37,22 +37,27 @@ public:
 			}
 		
 		reverse(tmp.begin(),tmp.end());
-		//rocess string into hex
-		unsigned i;
-		while(i < tmp.length())
-			{
-				
-			}
-		for(unsigned i=0; i < tmp.length())
-			}
-			tmp[i] -= '0';
+		//rocess string
+		if(baseIn == baseOut){
+			for(unsigned i=0; i < tmp.length())
+				}
+				tmp[i] -= '0';
 			
+				}
+				num = tmp;
+			} 
+		}else{
+
+			//use change of base function	
+			this->num = tmp;
+			this->changeBase(baseIn, baseOut);
 			}
-			num = tmp;
-		} 
+		
+		return this;
+		}
 
 	//public constructors
-	BigNum(const string& s, bool n) : num(s), neg(n) {};
+	BigNum(const string& s, bool n, unsigned char bass) : num(s), neg(n), base(bass) {};
  
 	//Destructor
 	~BigNum(){}
@@ -70,7 +75,39 @@ public:
 	//toString
 	string toString() const
 		{
-		//
+		string result = ""
+		string delim = " "		
+
+		for(unsigned i=0; i<this->num.length(); i++)
+			{
+			char* tmp = char[4];
+			char[0] = this->num[i] / 100;
+			char[1] = (this->num[i] % 100) / 10; 
+			char[2] = (this->num[i] % 100) % 10;
+			
+			if((char[0] == 0)
+				{
+				char[0] = char[1];
+				char[1] = char[2];
+				char[2] = 0; 
+				}
+
+			//diliberately here twice	
+			if((char[0] == 0)
+				{
+				char[0] = char[1];
+				char[1] = char[2];
+				char[2] = 0; 
+				}
+
+			result.append(tmp);
+			result.append(&delim);	
+
+			}
+
+		reverse(result.beign(),reults.end());
+
+		return result;
 		}
 
 	//arithmatic ops
@@ -128,5 +165,5 @@ public:
 private:
 
 	//used to convert between bases;
-	string changeBase(unsigned char base)();
+	string changeBase(unsigned char baseIn, unsigned char baseOut)();
 };

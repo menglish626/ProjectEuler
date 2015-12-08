@@ -179,11 +179,12 @@ BigNum& operator*(const BigNum& rhs)
 void divMod(const BigNum& lhs, const BigNum& rhs, BigNum* quo, BigNum* rem)
 	{
 
-	
+	//this is a stub for now	
 
 	}//end divMod
 
 
+//more stubs
 BigNum& BigNum::operator/(const BigNum& lhs, const BigNum& rhs)
 	{return *(new BigNum("",false));}
 BigNum& BigNum::operator%(const BigNum& lhs, const BigNum& rhs)
