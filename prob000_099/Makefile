@@ -18,3 +18,6 @@ all:
 	$(CXX) prob010.cpp -o prob010
 	$(CXX) prob011.cpp -o prob011
 	$(CXX) prob012.cpp -o prob012
+	$(CXX) prob014.cpp -o prob014
+	$(CXX) prob015.cpp -o prob015
+	$(CXX) prob021.cpp -o prob021
